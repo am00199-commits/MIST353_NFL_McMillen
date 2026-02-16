@@ -14,5 +14,11 @@ VALUES ('AFC', 'North'),
          ('NFC', 'East'),
          ('NFC', 'West');
 
+INSERT INTO Team (TeamName, TeamCityState, TeamColors, ConferenceDivisionID)
+VALUES ('Baltimore Ravens', 'Baltimore', 'Black, Purple', 1),
+         ('Cincinnati Bengals', 'Cincinnati', 'Orange, Black', 1),
+         ('Cleveland Browns', 'Cleveland', 'Brown, Black', 1),
+         ('Pittsburgh Steelers', 'Pittsburgh', 'Black, Gold', 1);
+         
 
 
