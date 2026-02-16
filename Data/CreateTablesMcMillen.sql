@@ -10,6 +10,8 @@ use MIST353_NFL_RDB_McMillen;
 -- Create tables for first iteration
 go
 
+DROP TABLE IF EXISTS ConferenceDivision;
+
 CREATE TABLE ConferenceDivision (
     ConferenceDivisionID INT IDENTITY(1,1) PRIMARY KEY,
     Conference NVARCHAR(50) NOT NULL
@@ -18,6 +20,8 @@ CREATE TABLE ConferenceDivision (
         CONSTRAINT CK_DivisionNames CHECK (Division IN ('North', 'South', 'East', 'West'))
 );
 go
+
+DROP TABLE IF EXISTS Team;
 
 CREATE TABLE Team (
     TeamID INT IDENTITY(1,1) 
