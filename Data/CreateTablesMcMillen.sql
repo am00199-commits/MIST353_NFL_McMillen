@@ -3,14 +3,17 @@
 
 --DROP DATABASE IF EXISTS NFL_RDB_McMillen;
 
+
+
 use MIST353_NFL_RDB_McMillen;
 
 -- Create tables for first iteration
 go
 
+DROP TABLE IF EXISTS ConferenceDivision;
+
 CREATE TABLE ConferenceDivision (
-    ConferenceDivisionID INT IDENTITY(1,1) 
-        constraint PK_ConferenceDivision PRIMARY KEY,
+    ConferenceDivisionID INT IDENTITY(1,1) CONSTRAINT PK_ConferenceDivision PRIMARY KEY,
     Conference NVARCHAR(50) NOT NULL,
         CONSTRAINT CK_ConferenceNames CHECK (Conference IN ('AFC', 'NFC')),
     Division NVARCHAR(50) NOT NULL
