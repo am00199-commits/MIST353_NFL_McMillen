@@ -7,21 +7,36 @@
 
 use MIST353_NFL_RDB_McMillen;
 
+if(OBJECT_ID('Team') IS NOT NULL)
+DROP TABLE Team;
+if(OBJECT_ID('ConferenceDivision') IS NOT NULL)
+DROP TABLE ConferenceDivision;
+
 -- Create tables for first iteration
+
 go
 
-DROP TABLE IF EXISTS ConferenceDivision;
-
 CREATE TABLE ConferenceDivision (
-    ConferenceDivisionID INT IDENTITY(1,1) PRIMARY KEY,
+    ConferenceDivisionID INT IDENTITY(1,1)  
+        CONSTRAINT PK_ConferenceDivision PRIMARY KEY,
     Conference NVARCHAR(50) NOT NULL
         CONSTRAINT CK_ConferenceNames CHECK (Conference IN ('AFC', 'NFC')),
     Division NVARCHAR(50) NOT NULL
-        CONSTRAINT CK_DivisionNames CHECK (Division IN ('North', 'South', 'East', 'West'))
+        CONSTRAINT CK_DivisionNames CHECK (Division IN ('North', 'South', 'East', 'West')),
+    CONSTRAINT UQ_ConferenceDivision UNIQUE (Conference, Division)
 );
+
+/*
+alter table ConferenceDivision
+    NOCHECK CONSTRAINT CK_ConferenceNames;
+
+alter table ConferenceDivision
+    CHECK CONSTRAINT CK_ConferenceNames;
+*/
+
 go
 
-DROP TABLE IF EXISTS Team;
+
 
 CREATE TABLE Team (
     TeamID INT IDENTITY(1,1) 
