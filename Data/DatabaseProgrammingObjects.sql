@@ -17,17 +17,26 @@ BEGIN
 END
 GO
 
---EXECUTE procGetTeamsByConferenceDivision 'AFC', 'North';
+EXECUTE procGetTeamsByConferenceDivision 'AFC', 'North';
 
+GO
+
+Create or alter procedure procFindAllTeamsInMyDivision
+(
+    @TeamName NVARCHAR(50)
+)
+AS
+BEGIN
 declare @myTeamName NVARCHAR(50) = 'Pittsburgh Steelers';    
 
 select OtherTeam.TeamName
-from Team MyTeam 
+from Team as MyTeam 
 inner join Team OtherTeam
     on MyTeam.ConferenceDivisionID = OtherTeam.ConferenceDivisionID
 where MyTeam.TeamName = @myTeamName AND
     OtherTeam.TeamName != @myTeamName;
+END
 
---execute procFindAllTeamsInMyDivision 'Pittsburgh Steelers';
+execute procFindAllTeamsInMyDivision 'Pittsburgh Steelers';
 
 

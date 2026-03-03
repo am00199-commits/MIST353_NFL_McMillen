@@ -6,7 +6,7 @@
 
 use master;
 
-ALTER LOGIN NandaSurendra
+CREATE LOGIN NandaSurendra
 
 WITH PASSWORD = 'MI$T353Instructor';
 
