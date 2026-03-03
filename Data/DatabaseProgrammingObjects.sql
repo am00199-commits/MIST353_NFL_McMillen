@@ -28,6 +28,6 @@ inner join Team OtherTeam
 where MyTeam.TeamName = @myTeamName AND
     OtherTeam.TeamName != @myTeamName;
 
-
+--execute procFindAllTeamsInMyDivision 'Pittsburgh Steelers';
 
 
