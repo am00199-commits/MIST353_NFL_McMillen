@@ -17,7 +17,7 @@ BEGIN
 END
 GO
 
-EXECUTE procGetTeamsByConferenceDivision 'AFC', 'North';
+--EXECUTE procGetTeamsByConferenceDivision 'AFC', 'North';
 
 GO
 
@@ -37,6 +37,6 @@ where MyTeam.TeamName = @myTeamName AND
     OtherTeam.TeamName != @myTeamName;
 END
 
-execute procFindAllTeamsInMyDivision 'Pittsburgh Steelers';
+--execute procFindAllTeamsInMyDivision 'Pittsburgh Steelers';
 
 
