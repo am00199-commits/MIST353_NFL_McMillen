@@ -4,23 +4,25 @@
 --DROP DATABASE IF EXISTS NFL_RDB_McMillen;
 -- Step 1: Create a login at the server level
 
+-- Step 1: Create a login at the server level
+
 use master;
 
-CREATE LOGIN NandaSurendra
 
-WITH PASSWORD = 'MI$T353Instructor';
+
+
 
 
 
 -- Step 2: Switch to your target database
 
-USE MIST353_NFL_RDB_McMillen;
+use MIST353_NFL_RDB_McMillen;
 
 
 
 -- Step 3: Create a database user mapped to the login
 
-CREATE USER NandaSurendra
+CREATE USER NandraSurendra
 
 FOR LOGIN NandaSurendra;
 
@@ -35,6 +37,26 @@ GRANT EXECUTE TO NandaSurendra;
 -- Read access to all tables
 
 GRANT SELECT TO NandaSurendra;
+
+USE MIST353_NFL_RDB_McMillen;
+
+
+
+-- Step 3: Create a database user mapped to the login
+
+
+
+
+
+-- Step 4: Grant EXECUTE permission on all stored procedures and UDFs
+
+GRANT EXECUTE TO APIUser;
+
+
+
+-- Read access to all tables
+
+GRANT SELECT TO APIUser;
 
 
 use MIST353_NFL_RDB_McMillen
